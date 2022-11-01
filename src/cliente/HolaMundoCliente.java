@@ -1,7 +1,9 @@
-package RMI_inicial;
+package cliente;
 
 import java.io.*;
 import java.rmi.*;
+
+import servidor.HolaMundoServidor;
 
 public class HolaMundoCliente {
 
@@ -17,7 +19,8 @@ public class HolaMundoCliente {
 			System.out.println("Numero de puerto: ");
 			String numPuerto = buf.readLine();
 			numPuertoRMI = Integer.parseInt(numPuerto);
-			String URLRegistro = "rmi://" + nombreNodo + ":" + numPuerto + "/holaMundo";
+			//String URLRegistro = "rmi://" + nombreNodo + ":" + numPuertoRMI + "/holaMundo";
+			String URLRegistro = "rmi://" + nombreNodo + ":" + numPuertoRMI +"/"+ HolaMundoImpl.class.getCanonicalName();
 			
 			HolaMundoInt h = (HolaMundoInt)Naming.lookup(URLRegistro);
 			System.out.println("Busqueda completa.");
@@ -26,7 +29,8 @@ public class HolaMundoCliente {
 			System.out.println("HolaMundoCliente: " + mensaje);
 					
 		} catch(Exception e) {
-			System.out.println("Excepcion en HolaMundoCliente: " + e);
+			System.out.println("Excepcion en HolaMundoCliente: " + e + "\n\n");
+			e.printStackTrace();
 		}
 		
 	}

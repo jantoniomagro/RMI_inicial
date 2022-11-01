@@ -1,9 +1,9 @@
-package RMI_inicial;
+package cliente;
 
 import java.rmi.*;
 import java.rmi.server.*;
 
-public class HolaMundoImpl extends UnicastRemoteObject {
+public class HolaMundoImpl extends UnicastRemoteObject implements HolaMundoInt {
 
 	/**
 	 * 

@@ -1,4 +1,4 @@
-package RMI_inicial;
+package cliente;
 
 import java.rmi.*;
 
